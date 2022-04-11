@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class Parabola : MonoBehaviour
 {
+    [SerializeField]
     public GameObject ball;
     public Transform target;
 
+    [SerializeField]
     public float height = 10;
     public float gravity = -9.8f;
-        
+     
+    [SerializeField]
     private Rigidbody rbBall;
 
     private void Start()
