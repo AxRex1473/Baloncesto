@@ -6,21 +6,30 @@ using TMPro;
 
 public class SistemaPuntos : MonoBehaviour
 {
-    [SerializeField]
-    public TextMeshProUGUI Text;
-    public int score = 0;
+    private int currentScore;
+    public TextMeshProUGUI scoreText;
 
-    private void Start()
+    // Use this for initialization
+    void Start()
     {
-        score = 0;
+        currentScore = 0;
+
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void HandleScore()
     {
-        if (other.gameObject.tag == "Puntos")
+
+        scoreText.text = "Score: " + currentScore;
+    }
+
+
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.tag == "Puntos")
         {
-            score = score + 1;
-            Text.text = Text.ToString();
+
+            currentScore ++;
+            HandleScore();
         }
     }
 }

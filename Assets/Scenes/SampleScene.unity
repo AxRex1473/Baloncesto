@@ -134,10 +134,10 @@ GameObject:
   - component: {fileID: 12461611}
   - component: {fileID: 12461614}
   - component: {fileID: 12461613}
-  - component: {fileID: 12461612}
+  - component: {fileID: 12461615}
   m_Layer: 0
-  m_Name: Puntos/Colision
-  m_TagString: Untagged
+  m_Name: Puntos
+  m_TagString: Puntos
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -150,26 +150,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 12461610}
   m_LocalRotation: {x: -0, y: -0.008198335, z: -0, w: 0.9999664}
-  m_LocalPosition: {x: -44.91, y: 15.16, z: -0.01}
+  m_LocalPosition: {x: -44.91, y: 14.99, z: -0.01}
   m_LocalScale: {x: 2, y: 0.8449, z: 3.5496469}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: -0.939, z: 0}
---- !u!65 &12461612
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 12461610}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &12461613
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -220,6 +207,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 12461610}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &12461615
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 12461610}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.99999994, z: 0.9999999}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &170475773
 GameObject:
   m_ObjectHideFlags: 0
@@ -1035,8 +1035,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed41843539bc4a54597526e1325915dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Text: {fileID: 1342123753}
-  score: 1
+  scoreText: {fileID: 1342123753}
 --- !u!114 &1342123753
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1471,7 +1470,7 @@ GameObject:
   - component: {fileID: 1742982613}
   - component: {fileID: 1742982612}
   m_Layer: 0
-  m_Name: Bloqueo
+  m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1497,7 +1496,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1742982611}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -2068,7 +2067,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4660061449026294445, guid: 6507da101e5375145b32c935ba87b61f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 18.6
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 4660061449026294445, guid: 6507da101e5375145b32c935ba87b61f, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2076,7 +2075,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4660061449026294445, guid: 6507da101e5375145b32c935ba87b61f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.22
+      value: -25.2
       objectReference: {fileID: 0}
     - target: {fileID: 4660061449026294445, guid: 6507da101e5375145b32c935ba87b61f, type: 3}
       propertyPath: m_LocalRotation.w
