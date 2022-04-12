@@ -9,13 +9,11 @@ public class SistemaVida : MonoBehaviour
     public int vidaPublic;
     public bool HacerDaño = true;
 
-    // Start is called before the first frame update
     void Start()
     {
         //vidas = 3;
     }
 
-    // Update is called once per frame
     void Update()
     {
         vidaPublic = vidas;
