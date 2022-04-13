@@ -8,28 +8,42 @@ public class SistemaPuntos : MonoBehaviour
 {
     private int currentScore;
     public TextMeshProUGUI scoreText;
+    public GameObject _canastaRandom;
+    public Transform _canasta;
+    public bool _encesto = default;
+    public Transform _ball;
 
-    // Use this for initialization
+
     void Start()
     {
         currentScore = 0;
-
     }
 
     private void HandleScore()
     {
-
-        scoreText.text = "Score: " + currentScore;
+        scoreText.text = "Score: " + currentScore.ToString();
+        
     }
 
-
-    void OnCollisionEnter2D(Collision2D col)
+    private void OnTriggerEnter(Collider other)
     {
-        if (col.gameObject.tag == "Puntos")
+        if (other.gameObject.CompareTag("Player"))
         {
-
+            Debug.Log("Tocando");
             currentScore ++;
             HandleScore();
+            _encesto = true;
         }
+
+        if (_encesto == true )
+        {
+            _canastaRandom.transform.position = new Vector3(Random.Range(-45f, -15f), 7.4f, Random.Range(45f, -45f));
+            _ball.transform.position = new Vector3(0, 3f, 0);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player")) _encesto = false;
     }
 }
