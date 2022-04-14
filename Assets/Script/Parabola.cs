@@ -7,6 +7,7 @@ public class Parabola : MonoBehaviour
     [SerializeField]
     public GameObject ball;
     public Transform target;
+    private Animator _animator;
 
     [SerializeField]
     public float height = 10;
@@ -18,13 +19,15 @@ public class Parabola : MonoBehaviour
     private void Start()
     {
         rbBall = ball.GetComponent<Rigidbody>();
+        
     }
-
+    
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Launch();
+            
         }
     }
 
@@ -33,6 +36,8 @@ public class Parabola : MonoBehaviour
         Physics.gravity = Vector3.up * gravity;
         rbBall.useGravity = true;
         rbBall.velocity = GetInicialVelocity();
+        
+
     }
 
     public Vector3 GetInicialVelocity()
@@ -47,4 +52,5 @@ public class Parabola : MonoBehaviour
 
         return new Vector3(XVelocity, YVelocity, ZVelocity);
     }
+
 }

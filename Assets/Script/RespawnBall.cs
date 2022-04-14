@@ -13,7 +13,11 @@ public class RespawnBall : MonoBehaviour
         {
             SpawnPoint();
         }
+
+
     }
+
+
 
     public void SpawnPoint()
     {
