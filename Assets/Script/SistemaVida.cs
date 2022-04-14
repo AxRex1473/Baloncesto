@@ -8,6 +8,7 @@ public class SistemaVida : MonoBehaviour
     public static int vidas = 3;
     public int vidaPublic;
     public bool HacerDaño = true;
+    public SistemaPuntos _sistemaPuntos;
 
     void Start()
     {
@@ -29,6 +30,8 @@ public class SistemaVida : MonoBehaviour
             HacerDaño = false;
             Invoke("ActDano", 1);
             vidas -= 1;
+            _sistemaPuntos._ball.transform.position = new Vector3(0, 3f, 0);
+
 
             if (Vidas.vidas != null)
             {
@@ -39,6 +42,7 @@ public class SistemaVida : MonoBehaviour
             {
                 Destroy(gameObject);
             }
+            
         }
     }
 

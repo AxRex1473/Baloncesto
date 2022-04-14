@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4660061449026294447}
   - component: {fileID: 4660061449026294440}
   - component: {fileID: 4660061449026294444}
+  - component: {fileID: 3576003721801131101}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Player
@@ -30,7 +31,6 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.84, y: 2.5, z: -0.22}
   m_LocalScale: {x: 2, y: 2, z: 2}
-  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -54,7 +54,6 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -114,3 +113,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &3576003721801131101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4660061449026294441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 400ab9070732d63429e707c58663194c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vidaPublic: 0
+  "HacerDa\xF1o": 1
