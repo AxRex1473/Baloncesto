@@ -22,8 +22,7 @@ public class SistemaVida : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
-        if (!HacerDaño)
-            return;
+        if (!HacerDaño) return;
 
         if (collision.CompareTag("Enemy"))
         {
@@ -31,8 +30,6 @@ public class SistemaVida : MonoBehaviour
             Invoke("ActDano", 1);
             vidas -= 1;
             _sistemaPuntos._ball.transform.position = new Vector3(0, 3f, 0);
-
-
             if (Vidas.vidas != null)
             {
                 Vidas.vidas.MenosVida();
@@ -42,7 +39,6 @@ public class SistemaVida : MonoBehaviour
             {
                 Destroy(gameObject);
             }
-            
         }
     }
 

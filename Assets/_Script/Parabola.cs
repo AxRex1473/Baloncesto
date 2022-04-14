@@ -19,7 +19,6 @@ public class Parabola : MonoBehaviour
     private void Start()
     {
         rbBall = ball.GetComponent<Rigidbody>();
-        
     }
     
     private void Update()
@@ -27,7 +26,6 @@ public class Parabola : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Launch();
-            
         }
     }
 
@@ -36,21 +34,15 @@ public class Parabola : MonoBehaviour
         Physics.gravity = Vector3.up * gravity;
         rbBall.useGravity = true;
         rbBall.velocity = GetInicialVelocity();
-        
-
     }
 
     public Vector3 GetInicialVelocity()
     {
         Vector3 distance = target.position - ball.transform.position;
-
         float XVelocity, YVelocity, ZVelocity;
-
         YVelocity = Mathf.Sqrt(-2.0f * gravity * height);
         XVelocity = (distance.x) / ((-YVelocity / gravity) + (Mathf.Sqrt((2.0f * (distance.y - height)) / gravity)));
         ZVelocity = (distance.z) / ((-YVelocity / gravity) + (Mathf.Sqrt((2.0f * (distance.y - height)) / gravity)));
-
         return new Vector3(XVelocity, YVelocity, ZVelocity);
     }
-
 }

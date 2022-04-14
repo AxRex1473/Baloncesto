@@ -37,6 +37,5 @@ public class Transition : MonoBehaviour
     {
         yield return new WaitForSeconds(3f);
         SceneManager.LoadScene("Game");
-
     }
 }

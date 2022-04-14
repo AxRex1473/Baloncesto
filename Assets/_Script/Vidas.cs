@@ -22,10 +22,6 @@ public class Vidas : MonoBehaviour
         }
     }
 
-    void Update()
-    {
-        
-    }
     public void MenosVida()
     {
         GameObject g = VidasFilas.Dequeue();
