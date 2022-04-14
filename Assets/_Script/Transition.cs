@@ -20,12 +20,14 @@ public class Transition : MonoBehaviour
     {
         Instantiate(_playParticles, _buttonConfig.transform.position, Quaternion.identity);
         _configPanel.SetActive(true);
+        DestroyParticles();
     }
 
     public void Return()
     {
         Instantiate(_playParticles, _buttonReturn.transform.position, Quaternion.identity);
         _configPanel.SetActive(false);
+        DestroyParticles();
     }
 
     public void ExitGame()
@@ -33,9 +35,14 @@ public class Transition : MonoBehaviour
         Application.Quit(1);
     }
 
+    public void DestroyParticles()
+    {
+        Destroy(_playParticles, 3f);
+    }
+
     public IEnumerator TransitionWait()
     {
-        yield return new WaitForSeconds(3f);
-        SceneManager.LoadScene("Game");
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadScene("SampleScene");
     }
 }
