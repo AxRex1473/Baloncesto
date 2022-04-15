@@ -1,6 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class SistemaVida : MonoBehaviour
 {
@@ -9,11 +9,6 @@ public class SistemaVida : MonoBehaviour
     public int vidaPublic;
     public bool HacerDaño = true;
     public SistemaPuntos _sistemaPuntos;
-
-    void Start()
-    {
-        //vidas = 3;
-    }
 
     void Update()
     {
@@ -29,7 +24,9 @@ public class SistemaVida : MonoBehaviour
             HacerDaño = false;
             Invoke("ActDano", 1);
             vidas -= 1;
+            _sistemaPuntos._rbball.constraints = RigidbodyConstraints.FreezePosition;
             _sistemaPuntos._ball.transform.position = new Vector3(0, 3f, 0);
+            _sistemaPuntos._rbball.constraints = RigidbodyConstraints.None;
             if (Vidas.vidas != null)
             {
                 Vidas.vidas.MenosVida();
@@ -38,6 +35,7 @@ public class SistemaVida : MonoBehaviour
             if (vidas <= 0)
             {
                 Destroy(gameObject);
+                SceneManager.LoadScene("GameOver");
             }
         }
     }

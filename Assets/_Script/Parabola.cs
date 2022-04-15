@@ -7,7 +7,6 @@ public class Parabola : MonoBehaviour
     [SerializeField]
     public GameObject ball;
     public Transform target;
-    private Animator _animator;
 
     [SerializeField]
     public float height = 10;

@@ -40,6 +40,16 @@ public class Transition : MonoBehaviour
         Destroy(_playParticles, 3f);
     }
 
+    public void ToMain()
+    {
+        SceneManager.LoadScene("Index");
+    }
+
+    public void ToAgain()
+    {
+        SceneManager.LoadScene("SampleScene");
+    }
+
     public IEnumerator TransitionWait()
     {
         yield return new WaitForSeconds(2f);

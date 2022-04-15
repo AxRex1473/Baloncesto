@@ -15,6 +15,7 @@ public class SistemaPuntos : MonoBehaviour
     public bool _encesto = default;
     private int _currentScore;
     public Animator _anim;
+    public Rigidbody _rbball;
 
     void Start()
     {
@@ -43,7 +44,9 @@ public class SistemaPuntos : MonoBehaviour
             _canastaRandom.transform.position = new Vector3(Random.Range(-45f, -15f), 7.4f, Random.Range(45f, -45f));
             _enemigo.transform.position = new Vector3(_canasta.transform.position.x + Random.Range(10, 15), _canasta.transform.position.y - 8, _canasta.transform.position.z + Random.Range(-10, 10));
             _ball.transform.position = new Vector3(0, 3f, 0);
+            _rbball.constraints = RigidbodyConstraints.FreezePosition;
             StartCoroutine(Manos());
+            _rbball.constraints = RigidbodyConstraints.None;
         }
 
         if (other.gameObject.CompareTag("Piso"))
