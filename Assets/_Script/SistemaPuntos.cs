@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
 public class SistemaPuntos : MonoBehaviour
 {
@@ -10,7 +9,7 @@ public class SistemaPuntos : MonoBehaviour
     public GameObject _enemigo;
     public Transform _ball;
     public Transform _canasta;
-    public TextMeshProUGUI _scoreText;
+    public TextMesh _scoreText;
     public SpawnConfetti _spawnConfetti;
     public bool _encesto = default;
     private int _currentScore;

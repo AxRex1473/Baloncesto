@@ -4,6 +4,6 @@ public class AutoSucide : MonoBehaviour
 {
     void Start()
     {
-        Destroy(this.gameObject, 2f);
+        Destroy(this.gameObject, 4f);
     }
 }
