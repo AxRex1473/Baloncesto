@@ -1,15 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class RespawnBall : MonoBehaviour
 {
-    public Transform _ball;
-    public SistemaPuntos _sistemaDePuntos;
+    public SistemaPuntos _sistemaPuntos;
+    public Transform _positionPlayer;
+    public Transform _spawnPlayerAgain;
 
     void Update()
     {
-        if (_sistemaDePuntos._encesto == true)
+        if (_sistemaPuntos._encesto == true)
         {
             SpawnPoint();
         }
@@ -17,6 +16,7 @@ public class RespawnBall : MonoBehaviour
 
     public void SpawnPoint()
     {
-        _ball.transform.position = new Vector3(0,3f,0);
+       
+        _positionPlayer.transform.position = new Vector3(_spawnPlayerAgain.transform.position.x, _spawnPlayerAgain.transform.position.y, _spawnPlayerAgain.transform.position.z);
     }
 }

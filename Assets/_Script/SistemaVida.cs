@@ -9,6 +9,7 @@ public class SistemaVida : MonoBehaviour
     public int vidaPublic;
     public bool HacerDaño = true;
     public SistemaPuntos _sistemaPuntos;
+    public Rigidbody _rbball;
 
     void Update()
     {
@@ -21,11 +22,12 @@ public class SistemaVida : MonoBehaviour
 
         if (collision.CompareTag("Enemy"))
         {
+            _rbball.useGravity = false;
             HacerDaño = false;
             Invoke("ActDano", 1);
             vidas -= 1;
             _sistemaPuntos._rbball.constraints = RigidbodyConstraints.FreezePosition;
-            _sistemaPuntos._ball.transform.position = new Vector3(0, 3f, 0);
+            _sistemaPuntos._ball.transform.position = new Vector3(_sistemaPuntos._positionBall.transform.position.x, _sistemaPuntos._positionBall.transform.position.y, _sistemaPuntos._positionBall.transform.position.z);
             _sistemaPuntos._rbball.constraints = RigidbodyConstraints.None;
             if (Vidas.vidas != null)
             {

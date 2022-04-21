@@ -7,14 +7,26 @@ public class SistemaPuntos : MonoBehaviour
 {
     public GameObject _canastaRandom;
     public GameObject _enemigo;
+    public GameObject _positionBall;
     public Transform _ball;
     public Transform _canasta;
-    public TextMesh _scoreText;
+    public Text _scoreText;
     public SpawnConfetti _spawnConfetti;
     public bool _encesto = default;
+    public bool _preparando = true;
     private int _currentScore;
     public Animator _anim;
     public Rigidbody _rbball;
+
+    private void Update()
+    {
+        if (_preparando == true)
+        {
+            _ball.transform.position = new Vector3(_positionBall.transform.position.x, _positionBall.transform.position.y, _positionBall.transform.position.z);
+        }
+
+        
+    }
 
     void Start()
     {
@@ -40,17 +52,11 @@ public class SistemaPuntos : MonoBehaviour
         if (_encesto == true)
         {
             _spawnConfetti.Confeti();
-            _canastaRandom.transform.position = new Vector3(Random.Range(-45f, -15f), 7.4f, Random.Range(45f, -45f));
             _enemigo.transform.position = new Vector3(_canasta.transform.position.x + Random.Range(10, 15), _canasta.transform.position.y - 8, _canasta.transform.position.z + Random.Range(-10, 10));
-            _ball.transform.position = new Vector3(0, 3f, 0);
+            _preparando = true;
             _rbball.constraints = RigidbodyConstraints.FreezePosition;
             StartCoroutine(Manos());
             _rbball.constraints = RigidbodyConstraints.None;
-        }
-
-        if (other.gameObject.CompareTag("Piso"))
-        {
-            _ball.transform.position = new Vector3(0, 3f, 0);
         }
     }
 

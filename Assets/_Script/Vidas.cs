@@ -5,7 +5,6 @@ public class Vidas : MonoBehaviour
 {
     [SerializeField]
     public GameObject[] Vida;
-    //QUEUE es una coleccion de objetos donde el primero en entrar es el primero en salir 
 
     [SerializeField]
     public Queue<GameObject> VidasFilas = new Queue<GameObject>();

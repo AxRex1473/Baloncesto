@@ -28,7 +28,6 @@ public class Transition : MonoBehaviour
         Instantiate(_playParticles, _buttonReturn.transform.position, Quaternion.identity);
         _configPanel.SetActive(false);
         DestroyParticles();
-        //SceneManager.LoadScene("Index");
     }
 
     public void ExitGame()
