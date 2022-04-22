@@ -17,15 +17,21 @@ public class SistemaPuntos : MonoBehaviour
     private int _currentScore;
     public Animator _anim;
     public Rigidbody _rbball;
+    public int _scoreDefault;
+    public AudioSource _sonidoAnotacion;
 
     private void Update()
     {
         if (_preparando == true)
         {
             _ball.transform.position = new Vector3(_positionBall.transform.position.x, _positionBall.transform.position.y, _positionBall.transform.position.z);
-        }
 
-        
+        }
+        if(_scoreDefault >= 3)
+        {
+            Instantiate(_enemigo, new Vector3(_canasta.transform.position.x + Random.Range(10, 30), _canasta.transform.position.y - 8, _canasta.transform.position.z + Random.Range(-30, 30)), Quaternion.identity);
+            _scoreDefault = 0;
+        }
     }
 
     void Start()
@@ -43,16 +49,17 @@ public class SistemaPuntos : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Tocando");
             _currentScore++;
+            _scoreDefault++;
             HandleScore();
             _encesto = true;
+            _sonidoAnotacion.Play();
         }
 
         if (_encesto == true)
         {
             _spawnConfetti.Confeti();
-            _enemigo.transform.position = new Vector3(_canasta.transform.position.x + Random.Range(10, 15), _canasta.transform.position.y - 8, _canasta.transform.position.z + Random.Range(-10, 10));
+            _enemigo.transform.position = new Vector3(_canasta.transform.position.x + Random.Range(10, 30), _canasta.transform.position.y - 8, _canasta.transform.position.z + Random.Range(-30, 30));
             _preparando = true;
             _rbball.constraints = RigidbodyConstraints.FreezePosition;
             StartCoroutine(Manos());

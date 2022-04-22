@@ -17,7 +17,7 @@ public class Parabola : MonoBehaviour
     [SerializeField]
     private Rigidbody rbBall;
     public SistemaPuntos sistemaPuntos;
-
+    //public bool _lanzado;
 
     private void Start()
     {
@@ -29,7 +29,7 @@ public class Parabola : MonoBehaviour
     {
         if (pass == true)
         {
-            if (Input.GetKey(KeyCode.Space))
+            if (Input.GetKey(KeyCode.Space) && sistemaPuntos._preparando == true)
             {
                 height = height + 5f * Time.deltaTime;
                 if (height >= 50)
@@ -41,13 +41,15 @@ public class Parabola : MonoBehaviour
                     pass = false;
                 }
             }
-            if (Input.GetKeyUp(KeyCode.Space))
+            if (Input.GetKeyUp(KeyCode.Space) && sistemaPuntos._preparando == true)
             {
                 sistemaPuntos._preparando = false;
+
                 rbBall.useGravity = true;
                 Launch();
                 height = 12f;
             }
+           
         }
     }
 

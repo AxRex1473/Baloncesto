@@ -10,6 +10,11 @@ public class SistemaVida : MonoBehaviour
     public bool HacerDaño = true;
     public SistemaPuntos _sistemaPuntos;
     public Rigidbody _rbball;
+    public AudioSource _abucheo;
+    private void Start()
+    {
+        vidas = 3;
+    }
 
     void Update()
     {
@@ -26,8 +31,9 @@ public class SistemaVida : MonoBehaviour
             HacerDaño = false;
             Invoke("ActDano", 1);
             vidas -= 1;
+            _abucheo.Play();
             _sistemaPuntos._rbball.constraints = RigidbodyConstraints.FreezePosition;
-            _sistemaPuntos._ball.transform.position = new Vector3(_sistemaPuntos._positionBall.transform.position.x, _sistemaPuntos._positionBall.transform.position.y, _sistemaPuntos._positionBall.transform.position.z);
+            _sistemaPuntos._preparando = true;
             _sistemaPuntos._rbball.constraints = RigidbodyConstraints.None;
             if (Vidas.vidas != null)
             {
@@ -38,6 +44,7 @@ public class SistemaVida : MonoBehaviour
             {
                 Destroy(gameObject);
                 SceneManager.LoadScene("GameOver");
+                
             }
         }
     }
