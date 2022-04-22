@@ -19,7 +19,7 @@ public class Enemigo : MonoBehaviour
     
     void Update()
     {
-        this.enemigo.destination = _playerTarget.position;
+        this.enemigo.destination = _playerTarget.transform.position;
         _enemigo.transform.localScale += _scaleChange * Time.deltaTime * _tiempo;
         if (_enemigo.transform.localScale.y >= 4f)
         {

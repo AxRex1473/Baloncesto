@@ -37,7 +37,7 @@ public class Transition : MonoBehaviour
 
     public void DestroyParticles()
     {
-        Destroy(_playParticles, 3f);
+        //Destroy(_playParticles, 3f);
     }
 
     public void ToMain()
