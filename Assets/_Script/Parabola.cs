@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Parabola : MonoBehaviour
 {
@@ -19,6 +20,10 @@ public class Parabola : MonoBehaviour
     public SistemaPuntos sistemaPuntos;
     //public bool _lanzado;
 
+    public Slider slider;
+    public int heightMax = 50;
+    public Image barra;
+
     private void Start()
     {
         rbBall.useGravity = false;
@@ -27,6 +32,22 @@ public class Parabola : MonoBehaviour
 
     private void Update()
     {
+        slider.value = height/heightMax;
+        if (height >= 27)
+        {
+            barra.color = Color.yellow;
+            
+            if (height>= 36)
+            {
+                barra.color = Color.red;
+            }
+            
+        }
+        else
+        {
+            barra.color = Color.green;
+        }
+
         if (pass == true)
         {
             if (Input.GetKey(KeyCode.Space) && sistemaPuntos._preparando == true)
@@ -39,6 +60,9 @@ public class Parabola : MonoBehaviour
                     Launch();
                     height = 12f;
                     pass = false;
+
+                    
+
                 }
             }
             if (Input.GetKeyUp(KeyCode.Space) && sistemaPuntos._preparando == true)
@@ -49,7 +73,7 @@ public class Parabola : MonoBehaviour
                 Launch();
                 height = 12f;
             }
-           
+            
         }
     }
 
